@@ -41,9 +41,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateGraph(sites: Set<LineGraphSeries<DataPoint>>) {
+        val colorList = intArrayOf(Color.GREEN, Color.BLUE, Color.MAGENTA, Color.RED)
+        var colorIndex = 0
         val graph = findViewById<View>(R.id.graph) as GraphView
         for (site in sites) {
+            site.color = colorList[colorIndex]
             graph.addSeries(site)
+            colorIndex += 1 % colorList.size
         }
         graph.legendRenderer.isVisible = true
         graph.legendRenderer.backgroundColor = Color.TRANSPARENT
