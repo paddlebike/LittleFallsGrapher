@@ -11,13 +11,9 @@ import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-
-    //var gaugeData: LineGraphSeries<DataPoint>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
