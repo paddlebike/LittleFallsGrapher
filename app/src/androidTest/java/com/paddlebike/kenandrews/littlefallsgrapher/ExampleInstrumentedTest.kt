@@ -1,7 +1,8 @@
 package com.paddlebike.kenandrews.littlefallsgrapher
 
-import android.support.test.InstrumentationRegistry
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import android.util.Log
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -21,4 +22,5 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getTargetContext()
         assertEquals("com.paddlebike.kenandrews.littlefallsgrapher", appContext.packageName)
     }
+
 }
