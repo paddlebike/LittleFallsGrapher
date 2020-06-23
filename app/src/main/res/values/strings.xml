@@ -6,4 +6,13 @@
     <string name="title_activity_settings">Settings</string>
 
     <string name="toast_invalid_site_id">Invalid Site ID please enter a valid numeric side ID</string>
+    <string name="flow_parameter_id">00060</string>
+    <string name="flow_parameter_name">Streamflow, ft&#179;/s</string>
+
+    <string name="stage_parameter_id">00066</string>
+    <string name="stage_parameter_name">Stage, ft&#179;/s</string>
+
+    <string name="temperature_parameter_id">00010</string>
+    <string name="temperature_parameter_name_f">Temperature Fahrenheit</string>
+    <string name="temperature_parameter_name_c">Temperature Centigrade</string>
 </resources>
