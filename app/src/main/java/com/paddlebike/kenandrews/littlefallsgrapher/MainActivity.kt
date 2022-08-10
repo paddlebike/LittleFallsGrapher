@@ -12,16 +12,20 @@ import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
-import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
+import com.paddlebike.kenandrews.littlefallsgrapher.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        //setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.myToolbar))
         fetchGauge()
 
@@ -36,12 +40,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.refresh -> {
             fetchGauge()
-            true
-        }
-
-        R.id.configure -> {
-            val intent = Intent(this, ConfigurationActivity::class.java)
-            startActivity(intent)
             true
         }
 
@@ -67,10 +65,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateGraph(sites: Set<LineGraphSeries<DataPoint>>) {
-        graph.removeAllSeries()
         val colorList = intArrayOf(Color.GREEN, Color.BLUE, Color.MAGENTA, Color.RED, Color.DKGRAY)
         var colorIndex = 0
         val graph = findViewById<View>(R.id.graph) as GraphView
+        graph.removeAllSeries()
         for (site in sites) {
             site.color = colorList[colorIndex]
             graph.addSeries(site)
